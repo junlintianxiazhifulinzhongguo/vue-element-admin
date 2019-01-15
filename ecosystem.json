@@ -4,7 +4,7 @@
       "name": "vue-element-admin",
       "script": "serve",
       "env": {
-        "PM2_SERVE_PORT": 3011,
+        "PM2_SERVE_PORT": 3015,
         "PM2_SERVE_PATH": "./dist",
         "COMMON_VARIABLE": "true"
       },
