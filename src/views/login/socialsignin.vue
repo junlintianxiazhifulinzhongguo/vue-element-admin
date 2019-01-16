@@ -42,10 +42,14 @@ export default {
       // const redirect_uri = encodeURIComponent('xxx/redirect?redirect=' + window.location.origin + '/auth-redirect')
       // const url = 'https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id=' + client_id + '&redirect_uri=' + redirect_uri
       // openWindow(url, thirdpart, 540, 540)
+      // https://openauth.alipay.com/oauth2/publicAppAuthorize.htm?app_id=2018123062714467&scope=auth_user
+      //&redirect_uri=http://www.junlintianxiazhifulinzhongguo.top/api/v0/login/authRedirect
     },
     async getAuthUrl() {
-      const redirect_uri = encodeURIComponent('xxx/redirect?redirect=' + window.location.origin + '/auth-redirect')
+      const redirect_uri = encodeURIComponent('www.junlintianxiazhifulinzhongguo.top/redirect?redirect=' + window.location.origin + '/auth-redirect')
       console.log(redirect_uri)
+      const a = decodeURIComponent(redirect_uri)
+      console.log(a)
       const response = await loginByAlipay()
       const { data } = response
       console.log(data)
