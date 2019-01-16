@@ -13,7 +13,7 @@ export function loginByUsername(username, password) {
 }
 export function loginByAlipay() {
   return request({
-    url: '/api/v0/login/authUrl',
+    url: 'api/v0/login/authUrl',
     method: 'get'
   })
 }
@@ -25,7 +25,7 @@ export function loginByThirdparty(status, email, code) {
   }
   console.log(data)
   return request({
-    url: '/api/v0/login/authRedirect',
+    url: 'api/v0/login/authRedirect',
     method: 'post'
   })
 }
