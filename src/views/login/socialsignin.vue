@@ -72,6 +72,7 @@ export default {
       margin-top: 8px;
     }
     .wx-svg-container,
+    .al-svg-container,
     .qq-svg-container {
       display: inline-block;
       width: 40px;
@@ -88,6 +89,10 @@ export default {
     }
     .qq-svg-container {
       background-color: #6BA2D6;
+      margin-left: 50px;
+    }
+    .al-svg-container {
+      background-color: rgb(57, 88, 228);
       margin-left: 50px;
     }
   }
