@@ -46,7 +46,7 @@ export default {
       //&redirect_uri=http://www.junlintianxiazhifulinzhongguo.top/api/v0/login/authRedirect
     },
     async getAuthUrl() {
-      const redirect_uri = encodeURIComponent('xxx/redirect?redirect=' + window.location.origin + '/auth-redirect')
+      const redirect_uri = encodeURIComponent(window.location.origin + '/#/auth-redirect')
       console.log(redirect_uri)
       const a = decodeURIComponent(redirect_uri)
       console.log(a)
