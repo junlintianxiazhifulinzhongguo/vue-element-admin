@@ -5,7 +5,7 @@
       "script": "serve",
       "env": {
         "PM2_SERVE_PORT": 3015,
-        "PM2_SERVE_PATH": "./%23",
+        "PM2_SERVE_PATH": "./%23/index.html",
         "COMMON_VARIABLE": "true"
       },
       "env_production": {
