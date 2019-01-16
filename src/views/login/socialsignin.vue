@@ -44,6 +44,8 @@ export default {
       // openWindow(url, thirdpart, 540, 540)
     },
     async getAuthUrl() {
+      const redirect_uri = encodeURIComponent('xxx/redirect?redirect=' + window.location.origin + '/auth-redirect')
+      console.log(redirect_uri)
       const response = await loginByAlipay()
       const { data } = response
       console.log(data)
