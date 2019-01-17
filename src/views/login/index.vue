@@ -160,7 +160,7 @@ export default {
       // alert(codeMap[this.auth_type])
       // alert( hashObj[codeMap[this.auth_type]])
       //const codeName = hashObj[codeMap[this.auth_type]]
-      const codeName = hashObj
+      const codeName = 'alipay'
       console.log('lijun123')
       console.log(codeName)
       if (!codeName) {
