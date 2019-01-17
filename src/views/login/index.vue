@@ -100,7 +100,7 @@ export default {
       passwordType: 'password',
       loading: false,
       showDialog: false,
-      auth_type:'alipay',
+      // auth_type:'alipay',
       redirect: undefined
     }
   },
