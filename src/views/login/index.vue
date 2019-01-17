@@ -145,12 +145,14 @@ export default {
     afterQRScan() {
       console.log('lijun222')
       const hash = window.location.hash.slice(1)
+      console.log(2323)
       const hashObj = getQueryObject(hash)
       const originUrl = window.location.origin
       history.replaceState({}, '', originUrl)
       const codeMap = {
         wechat: 'code',
-        tencent: 'code'
+        tencent: 'code',
+        alipay: 'code'
       }
       const codeName = hashObj[codeMap[this.auth_type]]
       console.log('lijun123')
@@ -158,6 +160,7 @@ export default {
       if (!codeName) {
         alert('第三方登录失败')
       } else {
+        console.log('adfadsf')
         this.$store.dispatch('LoginByThirdparty', codeName).then(() => {
           this.$router.push({ path: '/' })
         })

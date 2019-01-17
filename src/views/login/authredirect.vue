@@ -5,7 +5,7 @@ export default {
     console.log(111)
     const hash = window.location.hash.slice(1)
     console.log(hash)
-    window.opener.location.href = window.location.origin + '/login#' + hash
+    window.opener.location.href = window.location.origin + '/#' + hash
     window.close()
   }
   // mounted() {
