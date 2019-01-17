@@ -159,7 +159,8 @@ export default {
       // alert(this.auth_type)
       // alert(codeMap[this.auth_type])
       // alert( hashObj[codeMap[this.auth_type]])
-      const codeName = hashObj[codeMap[this.auth_type]]
+      //const codeName = hashObj[codeMap[this.auth_type]]
+      const codeName = hashObj
       console.log('lijun123')
       console.log(codeName)
       if (!codeName) {
