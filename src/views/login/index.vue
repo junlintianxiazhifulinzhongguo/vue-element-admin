@@ -100,6 +100,7 @@ export default {
       passwordType: 'password',
       loading: false,
       showDialog: false,
+      auth_type:'alipay',
       redirect: undefined
     }
   },
@@ -154,6 +155,7 @@ export default {
         tencent: 'code',
         alipay: 'code'
       }
+
       const codeName = hashObj[codeMap[this.auth_type]]
       console.log('lijun123')
       console.log(codeName)
