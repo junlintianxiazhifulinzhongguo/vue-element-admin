@@ -25,7 +25,7 @@ export function loginByThirdparty(status, email, code) {
   }
   console.log(data)
   return request({
-    url: 'login/authRedirect',
+    url: 'login/authUrl',
     method: 'post'
   })
 }
