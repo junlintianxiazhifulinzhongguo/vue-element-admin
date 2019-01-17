@@ -146,8 +146,9 @@ export default {
     afterQRScan() {
       console.log('lijun222')
       const hash = window.location.hash.slice(1)
-      console.log(2323)
+      console.log(hash)
       const hashObj = getQueryObject(hash)
+      console.log(hashObj)
       const originUrl = window.location.origin
       history.replaceState({}, '', originUrl)
       const codeMap = {
