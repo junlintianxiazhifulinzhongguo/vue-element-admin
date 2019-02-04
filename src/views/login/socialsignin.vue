@@ -52,8 +52,9 @@ export default {
       console.log(auth_url)
       this.auth_url = auth_url
     },
-    alipayHandleClick(thirdpart) {
-      this.getAuthUrl(thirdpart)
+    async alipayHandleClick(thirdpart) {
+      await this.getAuthUrl(thirdpart)
+      console.log(this.auth_url)
       this.$store.commit('SET_AUTH_TYPE', thirdpart)
       openWindow(this.auth_url, thirdpart, 540, 540)
     }
