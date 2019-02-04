@@ -50,15 +50,16 @@ export default {
     },
     async getAuthUrl() {
       for (let value of this.thirdpart) {
+        console.log(value)
         const response = await getAuthUrl(value)
         const { data } = response
         const { auth_url } = data
         switch(value)
         {
-        case wechat:
+        case 'wechat':
           this.wechat = auth_url
           break;
-        case qq:
+        case 'qq':
           this.qq = auth_url
           break;
         default:
