@@ -15,12 +15,14 @@ export default {
   },
   created() {
     console.log(111)
+    console.log(window.location)
     const hash = window.location.hash.slice(1)
+    
     console.log(hash)
     this.hash = hash
     alert(hash)
-    window.opener.location.href = window.location.origin + '/#' + hash
-    window.close()
+    // window.opener.location.href = window.location.origin + '/#' + hash
+    // window.close()
   }
   // mounted() {
   //   console.log(222)
