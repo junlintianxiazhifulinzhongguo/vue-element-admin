@@ -53,8 +53,17 @@ export default {
         const response = await getAuthUrl(value)
         const { data } = response
         const { auth_url } = data
-        console.log(auth_url)
-        this.value = auth_url
+        switch(value)
+        {
+        case wechat:
+          this.wechat = auth_url
+          break;
+        case qq:
+          this.qq = auth_url
+          break;
+        default:
+          this.alipay = auth_url
+        }
       } 
     },
     alipayHandleClick(thirdpart) {
