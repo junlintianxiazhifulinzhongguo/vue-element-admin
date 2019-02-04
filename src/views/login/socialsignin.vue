@@ -19,12 +19,15 @@ export default {
   name: 'SocialSignin',
   data() {
     return {
-      auth_url: ''
+      wechat: '',
+      qq: '',
+      alipay: '',
+      thirdpart:['wechat','qq','alipay']
     }
   },
-  // mounted() {
-  //   this.getAuthUrl()
-  // },
+  mounted() {
+    this.getAuthUrl()
+  },
   methods: {
     wechatHandleClick(thirdpart) {
       // alert('ok')
@@ -45,16 +48,19 @@ export default {
       // https://openauth.alipay.com/oauth2/publicAppAuthorize.htm?app_id=2018123062714467&scope=auth_user
       //&redirect_uri=http://www.junlintianxiazhifulinzhongguo.top/api/v0/login/authRedirect
     },
-    async getAuthUrl(thirdpart) {
-      const response = await getAuthUrl(thirdpart)
-      const { data } = response
-      const { auth_url } = data
-      console.log(auth_url)
-      this.auth_url = auth_url
+    async getAuthUrl() {
+      for (let value of this.thirdpart) {
+        const response = await getAuthUrl(value)
+        const { data } = response
+        const { auth_url } = data
+        console.log(auth_url)
+        this.value = auth_url
+      } 
     },
-    async alipayHandleClick(thirdpart) {
-      await this.getAuthUrl(thirdpart)
-      console.log(this.auth_url)
+    alipayHandleClick(thirdpart) {
+      console.log(this.wechat)
+      console.log(this.qq)
+      console.log(this.alipay)
       this.$store.commit('SET_AUTH_TYPE', thirdpart)
       openWindow(this.auth_url, thirdpart, 540, 540)
     }
