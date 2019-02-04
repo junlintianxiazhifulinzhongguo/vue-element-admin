@@ -71,8 +71,9 @@ export default {
       console.log(this.wechat)
       console.log(this.qq)
       console.log(this.alipay)
+      console.log(this.thirdpart)
       this.$store.commit('SET_AUTH_TYPE', thirdpart)
-      openWindow(this.auth_url, thirdpart, 540, 540)
+      openWindow(this.alipay, thirdpart, 540, 540)
     }
   }
 }
