@@ -11,9 +11,10 @@ export function loginByUsername(username, password) {
     data
   })
 }
-export function getAuthUrl() {
+export function getAuthUrl(thirdpart) {
   return request({
-    url: 'login/authUrl',
+    // url: 'login/authUrl',
+    url: 'login/'+thirdpart+'/authUrl',
     method: 'get'
   })
 }

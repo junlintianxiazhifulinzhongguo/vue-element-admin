@@ -19,7 +19,11 @@ export default {
   name: 'SocialSignin',
   data() {
     return {
-      auth_url: ''
+      auth_url: '',
+      wechat: '',
+      qq: '',
+      alipay: '',
+      thirdpart:['wechat','qq','alipay']
     }
   },
   mounted() {
@@ -43,12 +47,29 @@ export default {
       // openWindow(url, thirdpart, 540, 540)
     },
     async getAuthUrl() {
-      const response = await getAuthUrl()
-      const { data } = response
-      console.log(data)
-      const { auth_url } = data
-      console.log(auth_url)
-      this.auth_url = auth_url
+      // const response = await getAuthUrl()
+      // const { data } = response
+      // console.log(data)
+      // const { auth_url } = data
+      // console.log(auth_url)
+      // this.auth_url = auth_url
+
+      for (let value of this.thirdpart) {
+        const response = await getAuthUrl(value)
+        const { data } = response
+        const { auth_url } = data
+        switch(value)
+        {
+        case 'wechat':
+          this.wechat = auth_url
+          break;
+        case 'qq':
+          this.qq = auth_url
+          break;
+        default:
+          this.alipay = auth_url
+        }
+      } 
     },
     alipayHandleClick(thirdpart) {
       this.$store.commit('SET_AUTH_TYPE', thirdpart)
