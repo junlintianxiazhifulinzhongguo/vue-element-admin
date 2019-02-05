@@ -74,7 +74,7 @@ export default {
     alipayHandleClick(thirdpart) {
       this.$store.commit('SET_AUTH_TYPE', thirdpart)
       console.log(this.alipay)
-      openWindow(this.auth_url, thirdpart, 540, 540)
+      openWindow(this.alipay, thirdpart, 540, 540)
     }
   }
 }
