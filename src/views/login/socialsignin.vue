@@ -14,15 +14,12 @@
 
 <script>
 import openWindow from '@/utils/openWindow'
-import { getAuthUrl } from '@/api/login'
+import { loginByAlipay } from '@/api/login'
 export default {
   name: 'SocialSignin',
   data() {
     return {
-      wechat: '',
-      qq: '',
-      alipay: '',
-      thirdpart:['wechat','qq','alipay']
+      auth_url: ''
     }
   },
   mounted() {
@@ -30,13 +27,12 @@ export default {
   },
   methods: {
     wechatHandleClick(thirdpart) {
-      // alert('ok')
-      this.$store.commit('SET_AUTH_TYPE', thirdpart)
+      alert('ok')
+      // this.$store.commit('SET_AUTH_TYPE', thirdpart)
       // const appid = 'xxxxx'
       // const redirect_uri = encodeURIComponent('xxx/redirect?redirect=' + window.location.origin + '/auth-redirect')
       // const url = 'https://open.weixin.qq.com/connect/qrconnect?appid=' + appid + '&redirect_uri=' + redirect_uri + '&response_type=code&scope=snsapi_login#wechat_redirect'
-      const url = 'https://www.baidu.com'
-      openWindow(url, thirdpart, 540, 540)
+      // openWindow(url, thirdpart, 540, 540)
     },
     tencentHandleClick(thirdpart) {
       alert('ok')
@@ -45,42 +41,18 @@ export default {
       // const redirect_uri = encodeURIComponent('xxx/redirect?redirect=' + window.location.origin + '/auth-redirect')
       // const url = 'https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id=' + client_id + '&redirect_uri=' + redirect_uri
       // openWindow(url, thirdpart, 540, 540)
-      // https://openauth.alipay.com/oauth2/publicAppAuthorize.htm?app_id=2018123062714467&scope=auth_user
-      //&redirect_uri=http://www.junlintianxiazhifulinzhongguo.top/api/v0/login/authRedirect
     },
     async getAuthUrl() {
-      const response = await getAuthUrl('alipay')
-      console.log(response)
-      
+      const response = await loginByAlipay()
       const { data } = response
+      console.log(data)
       const { auth_url } = data
-      this.alipay = auth_url
-      // for (let value of this.thirdpart) {
-      //   console.log(value)
-      //   const response = await getAuthUrl(value)
-      //   const { data } = response
-      //   const { auth_url } = data
-      //   console.log(auth_url)
-      //   // switch(value)
-      //   // {
-      //   // case 'wechat':
-      //   //   this.wechat = auth_url
-      //   //   break;
-      //   // case 'qq':
-      //   //   this.qq = auth_url
-      //   //   break;
-      //   // default:
-      //   //   this.alipay = auth_url
-      //   // }
-      // } 
+      console.log(auth_url)
+      this.auth_url = auth_url
     },
     alipayHandleClick(thirdpart) {
-      console.log(this.wechat)
-      console.log(this.qq)
-      console.log(this.alipay)
-      console.log(this.thirdpart)
       this.$store.commit('SET_AUTH_TYPE', thirdpart)
-      openWindow(this.alipay, thirdpart, 540, 540)
+      openWindow(this.auth_url, thirdpart, 540, 540)
     }
   }
 }

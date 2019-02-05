@@ -11,9 +11,9 @@ export function loginByUsername(username, password) {
     data
   })
 }
-export function getAuthUrl(thirdpart) {
+export function getAuthUrl() {
   return request({
-    url: 'login/'+thirdpart+'/authUrl',
+    url: 'login/authUrl',
     method: 'get'
   })
 }
