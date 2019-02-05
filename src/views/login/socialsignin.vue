@@ -14,7 +14,7 @@
 
 <script>
 import openWindow from '@/utils/openWindow'
-import { loginByAlipay } from '@/api/login'
+import { getAuthUrl } from '@/api/login'
 export default {
   name: 'SocialSignin',
   data() {
@@ -43,7 +43,7 @@ export default {
       // openWindow(url, thirdpart, 540, 540)
     },
     async getAuthUrl() {
-      const response = await loginByAlipay()
+      const response = await getAuthUrl()
       const { data } = response
       console.log(data)
       const { auth_url } = data
