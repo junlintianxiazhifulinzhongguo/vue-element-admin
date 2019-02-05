@@ -49,7 +49,7 @@ export default {
       //&redirect_uri=http://www.junlintianxiazhifulinzhongguo.top/api/v0/login/authRedirect
     },
     async getAuthUrl() {
-      const response = await getAuthUrl(alipay)
+      const response = await getAuthUrl('alipay')
       const { data } = response
       const { auth_url } = data
       this.alipay = auth_url
