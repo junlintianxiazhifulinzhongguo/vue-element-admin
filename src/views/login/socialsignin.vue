@@ -50,6 +50,8 @@ export default {
     },
     async getAuthUrl() {
       const response = await getAuthUrl('alipay')
+      console.log(response)
+      
       const { data } = response
       const { auth_url } = data
       this.alipay = auth_url
