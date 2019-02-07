@@ -1,5 +1,5 @@
 module.exports = {
   NODE_ENV: '"production"',
   ENV_CONFIG: '"prod"',
-  BASE_API: '"http://junlintianxiazhifulinzhongguo.top/api/v0/"'
+  BASE_API: '"http://www.junlintianxiazhifulinzhongguo.top/api/v0/"'
 }
