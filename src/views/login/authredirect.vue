@@ -18,14 +18,14 @@ export default {
     console.log(hash)
     this.hash = hash
     alert(hash)
-    window.opener.location.href = window.location.origin + '/#' + hash
+    window.opener.location.href = window.location.origin + '/#' + hash.split("?")[1]
     window.close()
   }
   // mounted() {
   //   console.log(222)
   //   const hash = window.location.search.slice(1)
   //   console.log(hash)
-  //   window.opener.location.href = window.location.origin + '/login#' + hash
+  //   window.opener.location.href = window.location.origin + '#/login?' + hash
   //   window.close()
   // }
 }
