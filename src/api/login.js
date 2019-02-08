@@ -2,13 +2,16 @@ import request from '@/utils/request'
 
 export function loginByUsername(username, password) {
   const data = {
-    username,
-    password
+    type:'name',
+    value:{
+      username,
+      password
+    }
   }
   return request({
     url: '/login/getToken',
     method: 'post',
-    params: { type:'name',data }
+    data
   })
 }
 export function getAuthUrl(thirdpart) {
