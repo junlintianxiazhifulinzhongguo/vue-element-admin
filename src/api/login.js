@@ -43,7 +43,7 @@ export function logout() {
 export function getUserInfo(token) {
   console.log(token)
   return request({
-    url: '/user/info',
+    url: '/login/getUserInfo',
     method: 'get',
     params: { token }
   })
