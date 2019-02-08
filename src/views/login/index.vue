@@ -146,30 +146,18 @@ export default {
     },
     afterQRScan() {
       console.log('lijun222')
-      const hash = window.location.hash.slice(1)
+      const hash = window.location.hash.slice(1).split("?")[1]
       console.log(hash)
       const hashObj = getQueryObject(hash)
       console.log(hashObj)
       const originUrl = window.location.origin
       history.replaceState({}, '', originUrl)
-      const codeMap = {
-        wechat: 'code',
-        tencent: 'code',
-        alipay: 'code'
-      }
-      alert(this.auth_type)
-      alert(codeMap[this.auth_type])
-      alert( hashObj[codeMap[this.auth_type]])
-      const codeName1 = hashObj[codeMap[this.auth_type]]
-      console.log( codeName1)
-      const codeName = 'alipay'
-      console.log('lijun123')
-      console.log(codeName)
+      const codeName = hashObj.userId
       if (!codeName) {
         alert('第三方登录失败')
       } else {
         console.log('adfadsf')
-        this.$store.dispatch('LoginByThirdparty', codeName).then(() => {
+        this.$store.dispatch('LoginByThirdparty', hashObj).then(() => {
           this.$router.push({ path: '/' })
         })
       }
