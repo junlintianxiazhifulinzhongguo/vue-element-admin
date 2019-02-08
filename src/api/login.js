@@ -24,7 +24,7 @@ export function getAuthUrl(thirdpart) {
 export function loginByThirdparty(type, code) {
   const data = {
     type, 
-    code
+    value : code
   }
   console.log(data)
   return request({
