@@ -152,7 +152,7 @@ export default {
       console.log(hashObj)
       const originUrl = window.location.origin
       history.replaceState({}, '', originUrl)
-      const codeName = hashObj.userId
+      const codeName = hashObj.code
       if (!codeName) {
         alert('第三方登录失败')
       } else {
