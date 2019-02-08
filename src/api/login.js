@@ -21,16 +21,16 @@ export function getAuthUrl(thirdpart) {
     method: 'get'
   })
 }
-export function loginByThirdparty(status, email, code) {
+export function loginByThirdparty(type, code) {
   const data = {
-    status,
-    email,
+    type, 
     code
   }
   console.log(data)
   return request({
     url: 'login/getToken',
-    method: 'get'
+    method: 'post',
+    data
   })
 }
 export function logout() {
