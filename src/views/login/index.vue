@@ -132,6 +132,7 @@ export default {
         if (valid) {
           this.loading = true
           this.$store.dispatch('LoginByUsername', this.loginForm).then(() => {
+            console.log('进入登录页面')
             this.loading = false
             this.$router.push({ path: this.redirect || '/' })
           }).catch(() => {

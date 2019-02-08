@@ -41,6 +41,7 @@ export function logout() {
 }
 
 export function getUserInfo(token) {
+  console.log(token)
   return request({
     url: '/user/info',
     method: 'get',

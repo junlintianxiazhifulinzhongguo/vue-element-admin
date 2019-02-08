@@ -59,7 +59,7 @@ const user = {
           console.log(3344)
           console.log(data.token)
           commit('SET_TOKEN', data.token)
-          setToken(response.data.token)
+          setToken(data.token)
           resolve()
         }).catch(error => {
           reject(error)
@@ -70,13 +70,14 @@ const user = {
     // 获取用户信息
     GetUserInfo({ commit, state }) {
       return new Promise((resolve, reject) => {
+        console.log('获取用户信息',state.token)
         getUserInfo(state.token).then(response => {
           // 由于mockjs 不支持自定义状态码只能这样hack
           if (!response.data) {
             reject('Verification failed, please login again.')
           }
           const data = response.data
-
+          console.log(data)
           if (data.roles && data.roles.length > 0) { // 验证返回的roles是否是一个非空数组
             commit('SET_ROLES', data.roles)
           } else {
