@@ -8,7 +8,7 @@ export function loginByUsername(username, password) {
   return request({
     url: '/login/getToken',
     method: 'post',
-    data
+    params: { type:'name',data }
   })
 }
 export function getAuthUrl(thirdpart) {
