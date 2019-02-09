@@ -99,6 +99,8 @@ const user = {
       return new Promise((resolve, reject) => {
         commit('SET_CODE', code)
         loginByThirdparty(type,code).then(response => {
+          console.log(response.data)
+          console.log(response.data.token)
           commit('SET_TOKEN', response.data.token)
           setToken(response.data.token)
           resolve()
